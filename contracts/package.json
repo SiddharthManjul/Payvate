@@ -1,0 +1,14 @@
+{
+  "name": "cipherpay-contracts",
+  "version": "1.0.0",
+  "description": "CipherPay smart contracts",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test -vvv",
+    "deploy": "forge script script/Deploy.s.sol:DeployCipherPay --rpc-url $SEPOLIA_RPC_URL --broadcast -vvvv"
+  },
+  "dependencies": {
+    "@fhevm/solidity": "0.11.1",
+    "encrypted-types": "^0.0.4"
+  }
+}
