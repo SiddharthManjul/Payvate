@@ -1,0 +1,7 @@
+lib
+foundry.lock
+package-lock.json
+node_modules
+.env
+out
+cache
