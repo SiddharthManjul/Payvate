@@ -83,6 +83,12 @@ contract DeployCipherPay is Script {
         payrollToken.mint(address(payrollManager), TREASURY_FUND);
         console.log("PayrollManager funded with", TREASURY_FUND, "tokens");
 
+        // ── 6. Wire EmployeeRegistry → PayrollManager ────────────────────────
+        // This ensures future addEmployee() calls automatically grant PayrollManager
+        // ACL access to encrypted salary handles — required for executePayroll().
+        registry.setPayrollManager(address(payrollManager));
+        console.log("EmployeeRegistry wired to PayrollManager");
+
         vm.stopBroadcast();
 
         // ── Print deployment summary ─────────────────────────────────────────
